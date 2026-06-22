@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yalka Surplus Media — Creator Growth Partner</title>
+<style>
+  :root{
+    --navy:#10182B;
+    --navy-soft:#182238;
+    --gold:#D4AF37;
+    --gold-soft:#E8CD6B;
+    --cream:#F5F1E6;
+    --paper:#FAFAF8;
+    --ink:#1B2233;
+    --muted:#6E6A60;
+    --line:#E4DECE;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Avenir Next', 'Segoe UI', Arial, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{
+    font-family:Georgia, 'Times New Roman', serif;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  ::selection{background:var(--gold-soft);color:var(--navy);}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(16,24,43,0.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(212,175,55,0.25);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .badge{
+    width:36px;height:36px;border-radius:50%;
+    border:1.5px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-family:Georgia,serif;font-weight:700;font-size:13px;color:var(--gold);
+    flex-shrink:0;
+  }
+  .brand-text{color:var(--cream);font-family:Georgia,serif;font-weight:700;font-size:17px;letter-spacing:0.01em;}
+  .navlinks{display:flex;gap:36px;}
+  .navlinks a{color:var(--cream);opacity:0.78;font-size:14px;letter-spacing:0.03em;transition:opacity .2s;}
+  .navlinks a:hover{opacity:1;color:var(--gold);}
+  .nav-cta{
+    border:1px solid var(--gold);color:var(--gold);
+    padding:9px 18px;border-radius:2px;font-size:13px;letter-spacing:0.04em;
+    transition:background .2s, color .2s;
+  }
+  .nav-cta:hover{background:var(--gold);color:var(--navy);}
+  @media(max-width:760px){.navlinks{display:none;}}
+
+  /* HERO */
+  header.hero{
+    background:
+      radial-gradient(ellipse 900px 500px at 80% -10%, rgba(212,175,55,0.10), transparent 60%),
+      var(--navy);
+    color:var(--cream);
+    padding:120px 0 96px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid rgba(212,175,55,0.18);
+  }
+  header.hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(212,175,55,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,175,55,0.05) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 700px 400px at 75% 0%, black, transparent 70%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;letter-spacing:0.18em;color:var(--gold);
+    text-transform:uppercase;margin-bottom:28px;
+  }
+  .hero h1{
+    font-size:clamp(34px,5vw,58px);
+    line-height:1.08;
+    max-width:780px;
+    margin-bottom:26px;
+  }
+  .hero h1 em{color:var(--gold);font-style:normal;}
+  .hero p.lede{
+    font-size:18px;color:rgba(245,241,230,0.75);
+    max-width:540px;margin-bottom:40px;font-family:inherit;
+  }
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn-gold{
+    background:var(--gold);color:var(--navy);
+    padding:15px 30px;font-size:14px;font-weight:700;letter-spacing:0.03em;
+    border-radius:2px;display:inline-block;transition:transform .2s, background .2s;
+    font-family:inherit;
+  }
+  .btn-gold:hover{background:var(--gold-soft);transform:translateY(-1px);}
+  .btn-ghost{
+    border:1px solid rgba(245,241,230,0.3);color:var(--cream);
+    padding:15px 30px;font-size:14px;letter-spacing:0.03em;border-radius:2px;
+    transition:border-color .2s;
+  }
+  .btn-ghost:hover{border-color:var(--gold);}
+
+  .ledger{
+    margin-top:72px;display:flex;gap:0;border-top:1px solid rgba(212,175,55,0.25);
+    padding-top:28px;flex-wrap:wrap;
+  }
+  .ledger-item{flex:1;min-width:160px;padding-right:24px;}
+  .ledger-num{font-family:Georgia,serif;font-size:28px;color:var(--gold);font-weight:700;}
+  .ledger-label{font-size:12.5px;color:rgba(245,241,230,0.6);letter-spacing:0.03em;margin-top:4px;}
+
+  /* SECTION GENERIC */
+  section{padding:96px 0;}
+  .section-head{max-width:620px;margin-bottom:56px;}
+  .tag{font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#A98A2E;margin-bottom:14px;display:block;}
+  .section-head h2{font-size:clamp(26px,3.4vw,38px);color:var(--navy);line-height:1.18;}
+  .section-head p{color:var(--muted);margin-top:16px;font-size:16px;max-width:520px;}
+
+  /* WHAT I DO */
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .service{background:var(--paper);padding:38px 30px;}
+  .service .mark{
+    width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+    font-family:Georgia,serif;color:var(--gold);font-size:15px;font-weight:700;
+  }
+  .service h3{font-size:18px;color:var(--navy);margin-bottom:10px;}
+  .service p{font-size:14.5px;color:var(--muted);}
+  @media(max-width:760px){.services{grid-template-columns:1fr;}}
+
+  /* HOW IT WORKS */
+  .how{background:var(--navy);color:var(--cream);}
+  .how .tag{color:var(--gold);}
+  .how .section-head h2{color:var(--cream);}
+  .how .section-head p{color:rgba(245,241,230,0.65);}
+  .steps{position:relative;}
+  .steps::before{
+    content:"";position:absolute;left:23px;top:8px;bottom:8px;width:1px;
+    background:var(--gold);opacity:0.4;
+  }
+  .step{display:flex;gap:28px;padding:26px 0;position:relative;}
+  .step-num{
+    width:48px;height:48px;border-radius:50%;background:var(--navy);
+    border:1.5px solid var(--gold);color:var(--gold);
+    font-family:Georgia,serif;font-weight:700;font-size:16px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;
+  }
+  .step-body h3{font-size:18px;color:var(--cream);margin-bottom:6px;}
+  .step-body p{font-size:14.5px;color:rgba(245,241,230,0.62);max-width:480px;}
+
+  /* NICHES */
+  .niches{display:flex;gap:18px;flex-wrap:wrap;}
+  .niche-pill{
+    border:1px solid var(--line);padding:22px 26px;border-radius:3px;flex:1;min-width:220px;
+    background:var(--paper);
+  }
+  .niche-pill .n-eyebrow{font-size:11.5px;letter-spacing:0.1em;color:var(--gold-soft);text-transform:uppercase;}
+  .niche-pill h3{font-size:19px;color:var(--navy);margin:8px 0 6px;}
+  .niche-pill p{font-size:13.5px;color:var(--muted);}
+
+  /* DEAL / PROOF */
+  .proof{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .proof-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;}
+  .receipt{
+    background:var(--paper);border:1px solid var(--line);padding:36px;border-radius:2px;
+    box-shadow:0 24px 60px -30px rgba(16,24,43,0.25);
+  }
+  .receipt-row{display:flex;justify-content:space-between;padding:10px 0;font-size:14px;border-bottom:1px solid var(--line);}
+  .receipt-row:last-child{border-bottom:none;}
+  .receipt-row span:first-child{color:var(--muted);}
+  .receipt-row span:last-child{color:var(--navy);font-weight:700;}
+  .receipt-total{margin-top:14px;padding-top:18px;border-top:1px solid var(--navy);display:flex;justify-content:space-between;}
+  .receipt-total span:last-child{color:#A98A2E;font-family:Georgia,serif;font-size:20px;font-weight:700;}
+  @media(max-width:760px){.proof-grid{grid-template-columns:1fr;}}
+@media(max-width:760px){
+  .row2{flex-direction:column;}
+  .row2 input,.row2 select{width:100%;min-width:unset;}
+  header.hero{padding:80px 0 60px;}
+  .hero h1{font-size:30px;}
+  .hero p.lede{font-size:16px;}
+  .ledger{flex-direction:column;gap:20px;}
+  .ledger-item{padding-right:0;}
+  .steps::before{left:20px;}
+  .step{gap:18px;}
+  .step-num{width:40px;height:40px;font-size:14px;}
+  .niches{flex-direction:column;}
+  .niche-pill{min-width:unset;}
+  .wrap{padding:0 20px;}
+  section{padding:60px 0;}
+  .contact-inner{max-width:100%;}
+  footer .wrap{flex-direction:column;text-align:center;}
+  footer .f-links{justify-content:center;}
+  .nav-cta{display:none;}
+  .brand-text{font-size:14px;}
+}
+  /* CONTACT */
+  .contact{background:var(--navy);color:var(--cream);position:relative;overflow:hidden;}
+  .contact .wrap{position:relative;z-index:1;}
+  .contact-inner{max-width:600px;}
+  .contact h2{font-size:clamp(28px,4vw,42px);margin-bottom:18px;}
+  .contact p{color:rgba(245,241,230,0.68);margin-bottom:36px;font-size:16px;}
+  form{display:flex;flex-direction:column;gap:16px;}
+  .row2{display:flex;gap:16px;flex-wrap:wrap;}
+  .row2 input{flex:1;min-width:200px;}
+  input,select,textarea{
+    background:rgba(245,241,230,0.05);border:1px solid rgba(245,241,230,0.25);
+    color:var(--cream);padding:14px 16px;font-size:14px;border-radius:2px;font-family:inherit;
+  }
+  input::placeholder,textarea::placeholder{color:rgba(245,241,230,0.4);}
+  textarea{min-height:100px;resize:vertical;}
+  input:focus,select:focus,textarea:focus{outline:1.5px solid var(--gold);}
+  select option{color:#111;}
+
+  footer{background:var(--navy);border-top:1px solid rgba(212,175,55,0.18);padding:32px 0;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer .f-brand{color:var(--cream);font-family:Georgia,serif;font-size:14px;}
+  footer .f-links{display:flex;gap:24px;}
+  footer .f-links a{color:rgba(245,241,230,0.55);font-size:13px;}
+  footer .f-links a:hover{color:var(--gold);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">
+      <div class="badge">YSM</div>
+      <div class="brand-text">Yalka Surplus Media</div>
+    </div>
+    <div class="navlinks">
+      <a href="#services">What I Do</a>
+      <a href="#how">How It Works</a>
+      <a href="#niches">Niches</a>
+      <a href="#proof">The Split</a>
+    </div>
+    <a href="#contact" class="nav-cta">Apply to Partner</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Creator Growth Partner</span>
+    <h1>You built the audience.<br><em>I build the income.</em></h1>
+    <p class="lede">I'm Yalka. I find creators with engaged, untapped audiences and build a digital product around them. No cost to you upfront. No work pulled away from your content. We just split what it earns.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-gold">Apply to Partner</a>
+      <a href="#how" class="btn-ghost">See How It Works</a>
+    </div>
+
+    <div class="ledger">
+      <div class="ledger-item">
+        <div class="ledger-num">$0</div>
+        <div class="ledger-label">Upfront cost to you</div>
+      </div>
+      <div class="ledger-item">
+        <div class="ledger-num">60/40</div>
+        <div class="ledger-label">Standard revenue split</div>
+      </div>
+      <div class="ledger-item">
+        <div class="ledger-num">3</div>
+        <div class="ledger-label">Niches — fitness, AI, editing</div>
+      </div>
+      <div class="ledger-item">
+        <div class="ledger-num">1:1</div>
+        <div class="ledger-label">Direct, personal partnership</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">What I Do</span>
+      <h2>I handle the business side. You stay the face.</h2>
+      <p>Most creators have an audience worth more than they're capturing. I find that gap and turn it into a real product, built, priced, and launched, start to finish.</p>
+    </div>
+    <div class="services">
+      <div class="service">
+        <div class="mark">01</div>
+        <h3>Find the Opportunity</h3>
+        <p>I look at your audience and engagement to work out what a digital product of yours could realistically earn. Before either of us spends a minute building anything.</p>
+      </div>
+      <div class="service">
+        <div class="mark">02</div>
+        <h3>Build the Product</h3>
+        <p>Guide, course, template, or tool. I shape the offer around what your audience already asks you for, so it sells itself.</p>
+      </div>
+      <div class="service">
+        <div class="mark">03</div>
+        <h3>Run the Launch</h3>
+        <p>I handle the launch sequence, the offer mechanics, and the follow-through. You post like you normally do. I do the rest behind the scenes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">How It Works</span>
+      <h2>Four steps, start to first sale.</h2>
+      <p>The same process every time, simple enough that you always know exactly where things stand.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Find</h3>
+          <p>I review your content and engagement to estimate real earning potential. No guesswork, no inflated promises.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Approach</h3>
+          <p>I send over a free gameplan showing exactly what I'd build and how it would launch. You decide if it's worth doing.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Develop</h3>
+          <p>Once you're in, I build the product around your voice and your audience's actual questions.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Monetize</h3>
+          <p>I run the launch. You keep showing up as yourself. Revenue gets split the moment it lands.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="niches">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Who I Work With</span>
+      <h2>Three niches, on purpose.</h2>
+      <p>I stay focused so I can actually understand each audience — not spread thin across everything.</p>
+    </div>
+    <div class="niches">
+      <div class="niche-pill">
+        <span class="n-eyebrow">Niche 01</span>
+        <h3>Fitness &amp; Exercise</h3>
+        <p>Coaches and creators with programs, form tips, or routines worth packaging.</p>
+      </div>
+      <div class="niche-pill">
+        <span class="n-eyebrow">Niche 02</span>
+        <h3>AI &amp; Machine Learning</h3>
+        <p>Educators and builders explaining tools, workflows, and prompts worth productizing.</p>
+      </div>
+      <div class="niche-pill">
+        <span class="n-eyebrow">Niche 03</span>
+        <h3>Video Editing</h3>
+        <p>Editors with presets, processes, or techniques their audience keeps asking to learn.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proof" id="proof">
+  <div class="wrap">
+    <div class="proof-grid">
+      <div>
+        <span class="tag">The Split</span>
+        <h2 style="font-size:clamp(26px,3.4vw,36px);color:var(--navy);line-height:1.2;margin-bottom:18px;">Simple math. No surprises.</h2>
+        <p style="color:var(--muted);font-size:15.5px;max-width:440px;">Before we start anything, I show you exactly how the numbers work — price point, expected conversion, and what that means for both of us. This is an example, not a promise.</p>
+      </div>
+      <div class="receipt">
+        <div class="receipt-row"><span>Product price</span><span>$250</span></div>
+        <div class="receipt-row"><span>Audience size</span><span>25,000</span></div>
+        <div class="receipt-row"><span>Est. conversion rate</span><span>1.5%</span></div>
+        <div class="receipt-row"><span>Projected buyers</span><span>375</span></div>
+        <div class="receipt-row"><span>Total revenue</span><span>$93,750</span></div>
+        <div class="receipt-total"><span>Your share (60%)</span><span>$56,250</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <span class="eyebrow">Apply to Partner</span>
+      <h2>Let's see what your audience is worth.</h2>
+      <p>Tell me a bit about you and I'll come back with a free gameplan: what I'd build, how it would launch, and what it could realistically earn.</p>
+      <div id="form-container">
+        <form id="apply-form" action="https://formspree.io/f/xeebjzoe" method="POST">
+          <div class="row2">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="text" name="instagram" placeholder="Instagram handle" required>
+          </div>
+          <div class="row2">
+            <input type="text" name="_replyto" placeholder="Email address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Please enter a valid email address" required>
+            <select name="niche" id="niche-select" required>
+              <option value="" disabled selected>Your niche</option>
+              <option>Fitness &amp; Exercise</option>
+              <option>AI &amp; Machine Learning</option>
+              <option>Video Editing</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <input type="text" name="custom_niche" id="custom-niche" placeholder="Tell me your niche" style="display:none;margin-top:-2px;">
+          <textarea name="message" placeholder="What's your audience size, and what do they keep asking you for?"></textarea>
+          <button type="submit" class="btn-gold" style="text-align:center;border:none;cursor:pointer;width:100%;">Send My Application</button>
+        </form>
+        <div id="form-success" style="display:none;text-align:center;padding:48px 24px;border:1px solid rgba(212,175,55,0.35);border-radius:2px;">
+          <div style="width:56px;height:56px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-family:Georgia,serif;font-size:24px;color:var(--gold);">&#10003;</div>
+          <h3 style="font-family:Georgia,serif;font-size:22px;color:var(--cream);margin-bottom:10px;">You're in.</h3>
+          <p style="color:rgba(245,241,230,0.7);font-size:15px;max-width:380px;margin:0 auto;">Your application's been sent. I'll follow up personally with your gameplan soon.</p>
+        </div>
+      </div>
+      <script>
+        var nicheSelect = document.getElementById('niche-select');
+        var customNiche = document.getElementById('custom-niche');
+        nicheSelect.addEventListener('change', function(){
+          if(nicheSelect.value === 'Other'){
+            customNiche.style.display = 'block';
+            customNiche.required = true;
+          } else {
+            customNiche.style.display = 'none';
+            customNiche.required = false;
+            customNiche.value = '';
+          }
+        });
+
+        document.getElementById('apply-form').addEventListener('submit', function(e){
+          e.preventDefault();
+          var form = e.target;
+          var data = new FormData(form);
+
+          fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          }).then(function(response){
+            if(response.ok){
+              document.getElementById('form-container').querySelector('#apply-form').style.display = 'none';
+              document.getElementById('form-success').style.display = 'block';
+            } else {
+              alert('Something went wrong — please try again or email me directly.');
+            }
+          }).catch(function(){
+            alert('Something went wrong — please check your connection and try again.');
+          });
+        });
+      </script>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">Yalka Surplus Media</div>
+    <div class="f-links">
+      <a href="#services">What I Do</a>
+      <a href="#how">How It Works</a>
+      <a href="#contact">Apply</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
