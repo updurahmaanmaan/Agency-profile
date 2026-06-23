@@ -184,27 +184,28 @@
   .receipt-total{margin-top:14px;padding-top:18px;border-top:1px solid var(--navy);display:flex;justify-content:space-between;}
   .receipt-total span:last-child{color:#A98A2E;font-family:Georgia,serif;font-size:20px;font-weight:700;}
   @media(max-width:760px){.proof-grid{grid-template-columns:1fr;}}
-@media(max-width:760px){
-  .row2{flex-direction:column;}
-  .row2 input,.row2 select{width:100%;min-width:unset;}
-  header.hero{padding:80px 0 60px;}
-  .hero h1{font-size:30px;}
-  .hero p.lede{font-size:16px;}
-  .ledger{flex-direction:column;gap:20px;}
-  .ledger-item{padding-right:0;}
-  .steps::before{left:20px;}
-  .step{gap:18px;}
-  .step-num{width:40px;height:40px;font-size:14px;}
-  .niches{flex-direction:column;}
-  .niche-pill{min-width:unset;}
-  .wrap{padding:0 20px;}
-  section{padding:60px 0;}
-  .contact-inner{max-width:100%;}
-  footer .wrap{flex-direction:column;text-align:center;}
-  footer .f-links{justify-content:center;}
-  .nav-cta{display:none;}
-  .brand-text{font-size:14px;}
-}
+  @media(max-width:760px){
+    .row2{flex-direction:column;}
+    .row2 input,.row2 select{width:100%;min-width:unset;}
+    header.hero{padding:80px 0 60px;}
+    .hero h1{font-size:30px;}
+    .hero p.lede{font-size:16px;}
+    .ledger{flex-direction:column;gap:20px;}
+    .ledger-item{padding-right:0;}
+    .steps::before{left:20px;}
+    .step{gap:18px;}
+    .step-num{width:40px;height:40px;font-size:14px;}
+    .niches{flex-direction:column;}
+    .niche-pill{min-width:unset;}
+    .wrap{padding:0 20px;}
+    section{padding:60px 0;}
+    .contact-inner{max-width:100%;}
+    footer .wrap{flex-direction:column;text-align:center;}
+    footer .f-links{justify-content:center;}
+    .nav-cta{display:none;}
+    .brand-text{font-size:14px;}
+  }
+
   /* CONTACT */
   .contact{background:var(--navy);color:var(--cream);position:relative;overflow:hidden;}
   .contact .wrap{position:relative;z-index:1;}
@@ -351,8 +352,8 @@
   <div class="wrap">
     <div class="section-head">
       <span class="tag">Who I Work With</span>
-      <h2>Three niches, on purpose.</h2>
-      <p>I stay focused so I can actually understand each audience — not spread thin across everything.</p>
+      <h2>These are my main niches. But not my only ones.</h2>
+      <p>I focus on three areas where I know the audience well. But if your niche isn't listed, don't close this tab — apply anyway. If your audience is engaged and trusts you, we can make it work.</p>
     </div>
     <div class="niches">
       <div class="niche-pill">
@@ -367,8 +368,13 @@
       </div>
       <div class="niche-pill">
         <span class="n-eyebrow">Niche 03</span>
-        <h3>Video Editing</h3>
-        <p>Editors with presets, processes, or techniques their audience keeps asking to learn.</p>
+        <h3>Business &amp; Entrepreneurship</h3>
+        <p>Founders and operators sharing systems, strategies, or skills their audience wants to learn.</p>
+      </div>
+      <div class="niche-pill" style="border-style:dashed;background:transparent;">
+        <span class="n-eyebrow">Your Niche</span>
+        <h3 style="color:var(--muted);">Something else?</h3>
+        <p>If you have an engaged audience that trusts you, your niche probably works. Apply and let's find out.</p>
       </div>
     </div>
   </div>
@@ -380,19 +386,44 @@
       <div>
         <span class="tag">The Split</span>
         <h2 style="font-size:clamp(26px,3.4vw,36px);color:var(--navy);line-height:1.2;margin-bottom:18px;">Simple math. No surprises.</h2>
-        <p style="color:var(--muted);font-size:15.5px;max-width:440px;">Before we start anything, I show you exactly how the numbers work — price point, expected conversion, and what that means for both of us. This is an example, not a promise.</p>
+        <p style="color:var(--muted);font-size:15.5px;max-width:440px;">Put in your own numbers and see what a launch could look like for you. This is an estimate, not a promise — but it gives you a real picture before committing to anything.</p>
       </div>
       <div class="receipt">
-        <div class="receipt-row"><span>Product price</span><span>$250</span></div>
-        <div class="receipt-row"><span>Audience size</span><span>25,000</span></div>
-        <div class="receipt-row"><span>Est. conversion rate</span><span>1.5%</span></div>
-        <div class="receipt-row"><span>Projected buyers</span><span>375</span></div>
-        <div class="receipt-row"><span>Total revenue</span><span>$93,750</span></div>
-        <div class="receipt-total"><span>Your share (60%)</span><span>$56,250</span></div>
+        <div class="receipt-row">
+          <span>Product price ($)</span>
+          <input id="calc-price" type="number" value="250" min="1" style="width:100px;background:#f5f1e6;border:1px solid var(--line);padding:4px 8px;font-size:14px;font-weight:700;color:var(--navy);border-radius:2px;text-align:right;">
+        </div>
+        <div class="receipt-row">
+          <span>Your audience size</span>
+          <input id="calc-followers" type="number" value="25000" min="1" style="width:100px;background:#f5f1e6;border:1px solid var(--line);padding:4px 8px;font-size:14px;font-weight:700;color:var(--navy);border-radius:2px;text-align:right;">
+        </div>
+        <div class="receipt-row">
+          <span>Est. conversion rate (%)</span>
+          <input id="calc-rate" type="number" value="1.5" min="0.1" max="10" step="0.1" style="width:100px;background:#f5f1e6;border:1px solid var(--line);padding:4px 8px;font-size:14px;font-weight:700;color:var(--navy);border-radius:2px;text-align:right;">
+        </div>
+        <div class="receipt-row"><span>Projected buyers</span><span id="calc-buyers">375</span></div>
+        <div class="receipt-row"><span>Total revenue</span><span id="calc-revenue">$93,750</span></div>
+        <div class="receipt-total"><span>Your share (60%)</span><span id="calc-share">$56,250</span></div>
       </div>
     </div>
   </div>
 </section>
+<script>
+  function calcUpdate(){
+    var price = parseFloat(document.getElementById('calc-price').value) || 0;
+    var followers = parseFloat(document.getElementById('calc-followers').value) || 0;
+    var rate = parseFloat(document.getElementById('calc-rate').value) || 0;
+    var buyers = Math.round(followers * (rate / 100));
+    var revenue = buyers * price;
+    var share = revenue * 0.60;
+    document.getElementById('calc-buyers').textContent = buyers.toLocaleString();
+    document.getElementById('calc-revenue').textContent = '$' + revenue.toLocaleString();
+    document.getElementById('calc-share').textContent = '$' + share.toLocaleString();
+  }
+  document.getElementById('calc-price').addEventListener('input', calcUpdate);
+  document.getElementById('calc-followers').addEventListener('input', calcUpdate);
+  document.getElementById('calc-rate').addEventListener('input', calcUpdate);
+</script>
 
 <section class="contact" id="contact">
   <div class="wrap">
@@ -412,7 +443,7 @@
               <option value="" disabled selected>Your niche</option>
               <option>Fitness &amp; Exercise</option>
               <option>AI &amp; Machine Learning</option>
-              <option>Video Editing</option>
+              <option>Business &amp; Entrepreneurship</option>
               <option>Other</option>
             </select>
           </div>
