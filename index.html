@@ -266,7 +266,7 @@
         <div class="ledger-label">Upfront cost to you</div>
       </div>
       <div class="ledger-item">
-        <div class="ledger-num">60/40</div>
+        <div class="ledger-num">70/30</div>
         <div class="ledger-label">Standard revenue split</div>
       </div>
       <div class="ledger-item">
@@ -391,7 +391,7 @@
       <div class="receipt">
         <div class="receipt-row">
           <span>Product price ($)</span>
-          <input id="calc-price" type="number" value="250" min="1" style="width:100px;background:#f5f1e6;border:1px solid var(--line);padding:4px 8px;font-size:14px;font-weight:700;color:var(--navy);border-radius:2px;text-align:right;">
+          <input id="calc-price" type="number" value="150" min="1" style="width:100px;background:#f5f1e6;border:1px solid var(--line);padding:4px 8px;font-size:14px;font-weight:700;color:var(--navy);border-radius:2px;text-align:right;">
         </div>
         <div class="receipt-row">
           <span>Your audience size</span>
@@ -402,8 +402,8 @@
           <input id="calc-rate" type="number" value="1.5" min="0.1" max="10" step="0.1" style="width:100px;background:#f5f1e6;border:1px solid var(--line);padding:4px 8px;font-size:14px;font-weight:700;color:var(--navy);border-radius:2px;text-align:right;">
         </div>
         <div class="receipt-row"><span>Projected buyers</span><span id="calc-buyers">375</span></div>
-        <div class="receipt-row"><span>Total revenue</span><span id="calc-revenue">$93,750</span></div>
-        <div class="receipt-total"><span>Your share (60%)</span><span id="calc-share">$56,250</span></div>
+        <div class="receipt-row"><span>Total revenue</span><span id="calc-revenue">$56,250</span></div>
+        <div class="receipt-total"><span>Your share (70%)</span><span id="calc-share">$39,375</span></div>
       </div>
     </div>
   </div>
@@ -415,7 +415,7 @@
     var rate = parseFloat(document.getElementById('calc-rate').value) || 0;
     var buyers = Math.round(followers * (rate / 100));
     var revenue = buyers * price;
-    var share = revenue * 0.60;
+    var share = revenue * 0.70;
     document.getElementById('calc-buyers').textContent = buyers.toLocaleString();
     document.getElementById('calc-revenue').textContent = '$' + revenue.toLocaleString();
     document.getElementById('calc-share').textContent = '$' + share.toLocaleString();
